@@ -1,6 +1,6 @@
 var mqtt = require('./mqtt-wrapper.js')();
 var sphero = require("sphero"),
-    bb8 = sphero("699dc20f90214e4a809c60b94daea9c1"); // change BLE address accordingly
+    bb8 = sphero("87efa24476af49719485cf3e0e64756f"); // change BLE address accordingly
 
 console.log("**** Waiting for BB8 to connect *****");
 
@@ -42,25 +42,25 @@ bb8.connect(function () {
 
             //--------------------------------------------------------
             // HANDLE COMMAND - RED
-            //--------------------------------------------------------  
+            //--------------------------------------------------------
             if (msg.d.action === '#red') {
                 console.log('Change color to RED');
                 bb8.color("red");
             }
             //--------------------------------------------------------
             // HANDLE COMMAND - BLUE
-            //--------------------------------------------------------  
+            //--------------------------------------------------------
             else if (msg.d.action === '#blue') {
                 console.log('Change color to BLUE');
                 bb8.color("blue");
             }
-            
-            
-            
-            
+
+
+
+
             //--------------------------------------------------------
             // HANDLE COMMAND - START
-            //--------------------------------------------------------  
+            //--------------------------------------------------------
             else if (msg.d.action === '#start') {
                 console.log('Start Sphero');
 
@@ -84,12 +84,12 @@ bb8.connect(function () {
                 }
 
             }
-            
-            
-            
+
+
+
             //--------------------------------------------------------
             // HANDLE COMMAND - REVERSE
-            //--------------------------------------------------------  
+            //--------------------------------------------------------
             else if (msg.d.action === '#reverse') {
                 console.log('Reverse Sphero');
 
@@ -110,12 +110,12 @@ bb8.connect(function () {
 
                 bb8.color("blue");
             }
-            
-            
-            
+
+
+
             //--------------------------------------------------------
             // HANDLE COMMAND - STOP
-            //--------------------------------------------------------                             
+            //--------------------------------------------------------
             else if (msg.d.action === '#stop') {
                 //console.log('Stop Sphero');
 
@@ -123,36 +123,36 @@ bb8.connect(function () {
 
                 bb8.color("red");
             }
-            
-            
-            
+
+
+
             //--------------------------------------------------------
             // HANDLE COMMAND - GOCRAZY
-            //--------------------------------------------------------                             
+            //--------------------------------------------------------
             else if (msg.d.action === '#gocrazy') {
                 console.log('GOCRAZY Sphero');
 
                 bb8.stop();
                 bb8.roll(200, 0);
                 setTimeout(function(){
-                    
+
                 },2000);
                 bb8.roll(200, 90);
                 setTimeout(function(){
-                    
+
                 },2000);
                 bb8.roll(200, 180);
                 setTimeout(function(){
-                    
+
                 },2000);
                 bb8.roll(200, 270);
                 setTimeout(function(){
-                    
+
                 },2000);
                 bb8.stop();
-                
-                
-                
+
+
+
                 setInterval(function () {
                     var newRed = Math.floor(Math.random() * 256);
                     var newBlue = Math.floor(Math.random() * 256);
